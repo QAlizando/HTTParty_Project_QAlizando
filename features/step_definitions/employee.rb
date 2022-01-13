@@ -16,7 +16,7 @@ end
   end
   
     Quando('ele enviar as informacoes do funcionario') do
-      @create_employee = HTTParty.post(@post_url, body: {
+      @create_employee = HTTParty.post(@post_url, :headers => {'Content-Type': 'application/json'}, body: {
         "employee_name": "Tony",
         "employee_salary": 420800,
         "employee_age": 30,
@@ -25,12 +25,11 @@ end
     end
   
     Entao('esse funcionario sera cadastrado') do
-      puts @create_employee
-      puts @create_employee.code
-      puts @create_employee.msg
-      puts @create_employee["status"]
-      puts @create_employee["message"]
-      puts @create_employee['data']["employee_salary"]
-      # puts @create_employee.parsed_response["data"]["employee_salary"]
-      # puts @create_employee.parsed_response["data"]["employee_age"]
+      expect(@create_employee.code).to eql (200)
+      expect(@create_employee.msg).to eql 'OK'
+      expect(@create_employee["status"]).to eql 'success'
+      expect(@create_employee["message"]).to eql 'Successfully! Record has been added.' 
+      expect(@create_employee['data']["employee_name"]).to eql 'Tony'
+      expect(@create_employee['data']["employee_salary"]).to eql (420800)
+      expect(@create_employee['data']["employee_age"]).to eql (30)
     end
