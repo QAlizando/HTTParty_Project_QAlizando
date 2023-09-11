@@ -1,0 +1,74 @@
+[
+  {
+    "id": "pesquisar-funcionarios",
+    "uri": "features/bdd/employee.feature",
+    "keyword": "Funcionalidade",
+    "name": "Pesquisar Funcionarios",
+    "description": "    Para averiguar informacoes\n    O usuário do sistema\n    Deseja poder consultar informacoes dos funcionarios",
+    "line": 4,
+    "tags": [
+      {
+        "name": "@regressao",
+        "line": 3
+      }
+    ],
+    "elements": [
+      {
+        "id": "pesquisar-funcionarios;buscar-informacoes-de-funcionario",
+        "keyword": "Cenario",
+        "name": "Buscar informacoes de funcionario",
+        "description": "",
+        "line": 10,
+        "type": "scenario",
+        "steps": [
+          {
+            "keyword": "Dado ",
+            "name": "que o usuario consulte informacoes de funcionario",
+            "line": 11,
+            "match": {
+              "location": "features/step_definitions/employee.rb:1"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 17000
+            }
+          },
+          {
+            "keyword": "Quando ",
+            "name": "ele realizar a pesquisa",
+            "line": 12,
+            "match": {
+              "location": "features/step_definitions/employee.rb:5"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 768358000
+            }
+          },
+          {
+            "keyword": "Entao ",
+            "name": "uma lista de funcionarios deve retornar",
+            "line": 13,
+            "match": {
+              "location": "features/step_definitions/employee.rb:9"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 4230000
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@regressao",
+            "line": 3
+          },
+          {
+            "name": "@cenario_um",
+            "line": 9
+          }
+        ]
+      }
+    ]
+  }
+]
