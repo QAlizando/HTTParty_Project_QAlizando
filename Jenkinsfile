@@ -1,7 +1,7 @@
 node {
 
     stage('Docker Build') {
-        sh script:'docker build -t cucumber-ruby . -f Dockerfile'
+        sh script:'docker build -t cucumber-ruby . -f dockerfile'
     }
 
     stage('Tests Run') {
