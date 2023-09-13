@@ -1,11 +1,11 @@
 node {
 
     stage('Docker Build') {
-        sh script:'docker build -t cucumber-ruby . -f dockerfile'
+        sh script:'docker build -t cucumber/httparty .'
     }
 
     stage('Tests Run') {
-        sh script:'docker run cucumber-ruby'
+        sh script:'docker run -e ENV=${ENV} --name cucumber-httparty cucumber/httparty $@'
     }
 
     stage('Deleting Docker Container') {
