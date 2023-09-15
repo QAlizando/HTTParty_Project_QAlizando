@@ -16,7 +16,7 @@ pipeline {
 
     stage('Tests Run') {
       steps { 
-            sh script:'docker run -v $(pwd)/reports:/reports --name cucumber-httparty cucumber/httparty $@'
+            sh script:'docker run -v "$(pwd)/reports:/reports" --name cucumber-httparty cucumber/httparty $@'
             sh script: 'ls $(pwd)/reports'
       }
     }
