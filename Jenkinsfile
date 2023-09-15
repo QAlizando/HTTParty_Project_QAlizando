@@ -20,7 +20,6 @@ pipeline {
         cucumber (
           fileIncludePattern: '*.json',
           jsonReportDirectory: '/reports/report.json',
-          pluginUrlPath: 'cucumber-html-reports',
           buildStatus: 'UNSTABLE'
         )
       }  
