@@ -14,13 +14,6 @@ pipeline {
       }
     }
 
-    stage('Deleting Container') {
-      steps {
-        sh script:'docker rm $(docker ps -a -q)'
-        sh script:'docker rmi $(docker images -aq)'
-      }
-    }
-
     stage('Generating Test Report') {
       steps {
         cucumber(
@@ -28,8 +21,15 @@ pipeline {
           buildStatus: 'UNSTABLE'
         )
       }  
+    } 
+
+    stage('Deleting Container') {
+      steps {
+        sh script:'docker rm $(docker ps -a -q)'
+        sh script:'docker rmi $(docker images -aq)'
     }
-  } 
+   }
+  }
 }
 
 
