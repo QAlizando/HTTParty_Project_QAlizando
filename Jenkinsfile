@@ -1,13 +1,7 @@
 node {
 
-    agent { node { label 'linux && nodejs' } }
-    
-    stage('Creating Workdir') {
-        sh script:'mkdir ./reports'
-    }
-    
     stage('Docker Build') {
-        sh script:'docker build . -t cucumber/httparty -f Dockerfile'
+        sh script:'docker build . -t cucumber/httparty -f dockerfile'
     }
 
     stage('Tests Run') {
