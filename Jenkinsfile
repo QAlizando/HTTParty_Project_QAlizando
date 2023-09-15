@@ -10,14 +10,16 @@ pipeline {
 
     stage('Tests Run') {
       steps {
-        try { 
-          sh script:'docker run -v "$(pwd)/reports:/reports" --name cucumber-httparty cucumber/httparty $@'
-          sh script: 'ls $(pwd)/reports'
-        } catch(exception) {
-          echo exception.getMessage()
-          currentBuild.result = 'UNSTABLE'
+        script{
+            try { 
+              sh script:'docker run -v "$(pwd)/reports:/reports" --name cucumber-httparty cucumber/httparty $@'
+              sh script: 'ls $(pwd)/reports'
+            } catch(exception) {
+              echo exception.getMessage()
+              currentBuild.result = 'UNSTABLE'
+            }
+          }
         }
-      }
     }
 
     stage('Generating Test Report') {
