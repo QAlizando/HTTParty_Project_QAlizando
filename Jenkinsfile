@@ -11,6 +11,7 @@ pipeline {
     stage('Tests Run') {
       steps { 
             sh script:'docker run --name cucumber-httparty cucumber/httparty $@'
+            sh script: 'ls $(pwd)/reports'
       }
     }
 
@@ -18,7 +19,8 @@ pipeline {
       steps {
         cucumber (
           fileIncludePattern: '*.json',
-          jsonReportDirectory: '*.json',
+          jsonReportDirectory: '/reports/report.json',
+          pluginUrlPath: 'cucumber-html-reports',
           buildStatus: 'UNSTABLE'
         )
       }  
