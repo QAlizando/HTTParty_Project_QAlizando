@@ -14,7 +14,6 @@ pipeline {
       }
     }
 
-  finally {
     stage('Generating Test Report') {
       steps {
         cucumber(
@@ -24,7 +23,7 @@ pipeline {
         )
       }  
     } 
-  }
+    
     stage('Deleting Container') {
       steps {
         sh script:'docker rm $(docker ps -a -q)'
