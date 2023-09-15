@@ -20,6 +20,16 @@ pipeline {
         sh script:'docker rmi $(docker images -aq)'
       }
     }
+
+    stage('Generating Test Report') {
+      steps {
+        def jsonReportDirectory = findFiles(glob: '**/*.json')[0].name
+        cucumber(
+          jsonReportDirectory: jsonReportDirectory,
+          buildStatus: 'UNSTABLE'
+        )
+      }  
+    }
   } 
 }
 
