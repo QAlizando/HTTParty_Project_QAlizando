@@ -23,9 +23,8 @@ pipeline {
 
     stage('Generating Test Report') {
       steps {
-        def jsonReportDirectory = findFiles(glob: '**/*.json')[0].name
         cucumber(
-          fileIncludePattern: jsonReportDirectory,
+          fileIncludePattern: findFiles(glob: '**/*.json')[0].name,
           buildStatus: 'UNSTABLE'
         )
       }  
