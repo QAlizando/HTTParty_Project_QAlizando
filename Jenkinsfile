@@ -1,13 +1,18 @@
-node {
+#!groovy
+
+pipeline {
 
     stage('Docker Build') {
         agent any
-        
-        sh script:'docker build -t cucumber/httparty .'
+    steps {
+            sh:'docker build -t cucumber/httparty .'
+        }
     }
 
     stage('Tests Run') {
-        sh script:'docker run --name cucumber-httparty cucumber/httparty $@'
+        steps   {
+            sh:'docker run --name cucumber-httparty cucumber/httparty $@'
+        }
     }
 }
 
