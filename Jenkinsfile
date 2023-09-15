@@ -19,7 +19,7 @@ pipeline {
       steps {
         cucumber (
           fileIncludePattern: '*.json',
-          jsonReportDirectory: '/reports/report.json',
+          jsonReportDirectory: '/Users/tonygee/.jenkins/workspace/QAlizando_Jenkinsfile/reports',
           buildStatus: 'UNSTABLE'
         )
       }  
