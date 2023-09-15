@@ -16,8 +16,8 @@ pipeline {
 
     stage('Generating Test Report') {
       steps {
-        cucumber (
           sh script: 'ls $(pwd)/reports'
+        cucumber (
           jsonReportDirectory: '/reports/report.json',
           buildStatus: 'UNSTABLE'
         )
