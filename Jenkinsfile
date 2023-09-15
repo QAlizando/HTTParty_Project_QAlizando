@@ -12,8 +12,8 @@ pipeline {
       steps {
         script{
             try { 
-              sh script:'docker run -v "$(pwd)/reports:/reports" --name cucumber-httparty cucumber/httparty $@'
-              sh script: 'ls $(pwd)/reports'
+              sh script:'docker run --name cucumber-httparty cucumber/httparty $@'
+              sh script: 'ls $(pwd)'
             } catch(exception) {
               echo exception.getMessage()
               currentBuild.result = 'FAILURE'
@@ -26,7 +26,7 @@ pipeline {
       steps {
         cucumber (
           fileIncludePattern: '*.json',
-          jsonReportDirectory: '/Users/tonygee/.jenkins/workspace/QAlizando_Jenkinsfile/reports',
+          jsonReportDirectory: '/Users/tonygee/.jenkins/workspace/QAlizando_Jenkinsfile',
           buildStatus: 'UNSTABLE'
         )
       }  
