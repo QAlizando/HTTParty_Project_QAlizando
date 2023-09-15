@@ -8,12 +8,12 @@ pipeline {
         }
       }
 
-    stage('Tests Run') {
-      steps { 
-            sh script:'docker run -v "$(pwd)/reports:/reports" --name cucumber-httparty cucumber/httparty $@'
+      stage('Tests Run') {
+        steps { 
+            sh script:'docker run --name cucumber-httparty cucumber/httparty $@'
             sh script: 'ls $(pwd)/reports'
+        }
       }
-    }
 
     stage('Generating Test Report') {
       steps {
