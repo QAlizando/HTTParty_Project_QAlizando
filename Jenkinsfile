@@ -1,6 +1,6 @@
 node {
     stage('Docker Build') {
-        sh script:'docker build . -t cucumber/httparty -f Dockerfile.txt'
+        sh script:'docker build . -t cucumber/httparty -f Dockerfile'
     }
 
     stage('Tests Run') {
