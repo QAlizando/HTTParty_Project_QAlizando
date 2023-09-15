@@ -25,7 +25,7 @@ pipeline {
       steps {
         def jsonReportDirectory = findFiles(glob: '**/*.json')[0].name
         cucumber(
-          jsonReportDirectory: jsonReportDirectory,
+          fileIncludePattern: jsonReportDirectory,
           buildStatus: 'UNSTABLE'
         )
       }  
