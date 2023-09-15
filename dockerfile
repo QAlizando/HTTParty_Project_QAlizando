@@ -8,4 +8,4 @@ COPY testRunner.sh /
 
 RUN bundle install && chmod +x /testRunner.sh
 
-CMD /testRunner.sh
+CMD ["cucumber", "--format", "json", "--out", "report.json"]

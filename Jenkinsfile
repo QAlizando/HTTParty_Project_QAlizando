@@ -11,7 +11,6 @@ pipeline {
     stage('Tests Run') {
       steps { 
             sh script:'docker run --name cucumber-httparty cucumber/httparty $@'
-            sh script:'ls $(pwd)/reports'
       }
     }
 
