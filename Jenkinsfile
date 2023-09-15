@@ -24,7 +24,7 @@ pipeline {
     stage('Generating Test Report') {
       steps {
         cucumber(
-          fileIncludePattern: findFiles(glob: '**/*.json')[0].name,
+          fileIncludePattern: '**/*.json',
           buildStatus: 'UNSTABLE'
         )
       }  
