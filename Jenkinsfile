@@ -16,7 +16,7 @@ pipeline {
 
     stage('Wait for Report') {
       steps {
-        sleep(time: 60, unit: 'SECONDS')
+        sleep(time: 10, unit: 'SECONDS')
       }
     }
 
@@ -24,7 +24,7 @@ pipeline {
       steps {
         cucumber (
           fileIncludePattern: '**/*.json',
-          jsonReportDirectory: 'target',
+          jsonReportDirectory: 'report.json',
           buildStatus: 'UNSTABLE'
         )
       }  
