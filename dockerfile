@@ -6,8 +6,6 @@ COPY . .
 
 COPY testRunner.sh /
 
-COPY reports /
-
 RUN bundle install && chmod +x /testRunner.sh
 
 CMD /testRunner.sh

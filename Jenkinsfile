@@ -18,8 +18,8 @@ pipeline {
     stage('Generating Test Report') {
       steps {
         cucumber (
-          fileIncludePattern: '/reports/*.json',
-          jsonReportDirectory: '/reports/report.json',
+          fileIncludePattern: '*.json',
+          jsonReportDirectory: 'report.json',
           buildStatus: 'UNSTABLE'
         )
       }  

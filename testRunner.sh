@@ -1,2 +1,2 @@
 #!/bin/sh
-cucumber --format json --out /reports/report.json
+cucumber --format json --out /report.json
