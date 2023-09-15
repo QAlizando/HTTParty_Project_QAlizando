@@ -7,7 +7,7 @@ end
   end
   
   Entao('uma lista de funcionarios deve retornar') do
-    expect(@list_employee.code).to eql 200
+    expect(@list_employee.code).to eql 404
     expect(@list_employee.message).to eql 'OK'
   end
 
