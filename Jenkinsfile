@@ -8,9 +8,15 @@ pipeline {
         }
       }
 
+    stage('Workdir') {
+      steps { 
+         sh script:'mkdir ./reports'
+      }
+    }  
+
     stage('Tests Run') {
       steps { 
-            sh script:'docker run --name cucumber-httparty cucumber/httparty $@'
+            sh script:'docker run -v $(pwd)/reports:/reports --name cucumber-httparty cucumber/httparty $@'
             sh script: 'ls $(pwd)/reports'
       }
     }
