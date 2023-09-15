@@ -4,6 +4,6 @@ WORKDIR /qalizando
 
 COPY . .
 
-RUN bundle install && chmod +x /testRunner.sh
+RUN bundle install
 
 CMD ["cucumber", "--format", "json", "--out", "report.json"]
