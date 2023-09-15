@@ -16,7 +16,7 @@ pipeline {
               sh script: 'ls $(pwd)/reports'
             } catch(exception) {
               echo exception.getMessage()
-              currentBuild.result = 'UNSTABLE'
+              currentBuild.result = 'FAILURE'
             }
           }
         }
