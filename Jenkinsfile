@@ -16,10 +16,13 @@ pipeline {
 
     stage('Generating Test Report') {
       steps {
+        finally {
         cucumber(
           fileIncludePattern: '**/*.json',
+          jsonReportDirectory: 'target'
           buildStatus: 'UNSTABLE'
         )
+        }
       }  
     } 
 
