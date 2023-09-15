@@ -16,14 +16,14 @@ pipeline {
 
     stage('Generating Test Report') {
       steps {
-        cucumber(
+        cucumber (
           fileIncludePattern: '**/*.json',
-          jsonReportDirectory: 'target'
+          jsonReportDirectory: 'target',
           buildStatus: 'UNSTABLE'
         )
       }  
     } 
-    
+
     stage('Deleting Container') {
       steps {
         sh script:'docker rm $(docker ps -a -q)'
