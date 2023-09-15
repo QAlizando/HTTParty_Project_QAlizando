@@ -14,17 +14,11 @@ pipeline {
       }
     }
 
-    stage('Wait for Report') {
-      steps {
-        sleep(time: 10, unit: 'SECONDS')
-      }
-    }
-
     stage('Generating Test Report') {
       steps {
         cucumber (
-          fileIncludePattern: '**/*.json',
-          jsonReportDirectory: 'report.json',
+          sh script: 'ls $(pwd)/reports'
+          jsonReportDirectory: '/reports/report.json',
           buildStatus: 'UNSTABLE'
         )
       }  
