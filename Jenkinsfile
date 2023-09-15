@@ -14,6 +14,12 @@ pipeline {
       }
     }
 
+    stage('Wait for Report') {
+      steps {
+        sleep(time: 60, unit: 'SECONDS')
+      }
+    }
+
     stage('Generating Test Report') {
       steps {
         cucumber (
